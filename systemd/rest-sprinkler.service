@@ -1,0 +1,16 @@
+[Unit]
+Description=rest-sprinkler
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+WorkingDirectory=__WORKING_DIRECTORY__
+ExecStart=python -m rest_sprinkler.serve
+Environment="HA_API_TOKEN=__HA_API_TOKEN__"
+
+[Install]
+WantedBy=multi-user.target

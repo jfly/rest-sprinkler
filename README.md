@@ -15,3 +15,18 @@ This OpenSprinkler feature feels pretty jank to me:
 
 I wonder if [Sustainable Irrigation Platform](https://dan-in-ca.github.io/SIP/)
 is better at this?
+
+## Run the server
+
+Create a "Long-lived access token" in your Home Assistant profile:
+
+    HA_API_TOKEN=[that access token you just created] python -m rest_sprinkler.serve
+
+## Install systemd service
+
+Urg:
+
+    systemd/install.sh [HA_API_TOKEN]
+
+Where `[HA_API_TOKEN]` is a "Long-lived access token" created in your Home
+Assistant profile.
