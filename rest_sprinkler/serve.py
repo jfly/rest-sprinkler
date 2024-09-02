@@ -29,24 +29,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def _router(self):
         parts = self.path.removeprefix("/").split("/")
 
-        if len(parts) == 0:
-            self._usage()
-        elif len(parts) == 1:
-            self._four_oh_four()
-        elif len(parts) == 2:
+        if len(parts) == 2:
             entity_id, verb = parts
             self._call_service(entity_id, verb)
-        elif len(parts) > 2:
-            self._four_oh_four()
         else:
-            assert False
+            self._usage()
 
     def _five_oh_oh(self):
         self.send_response(HTTPStatus.INTERNAL_SERVER_ERROR)
-        self.end_headers()
-
-    def _four_oh_four(self):
-        self.send_response(HTTPStatus.NOT_FOUND)
         self.end_headers()
 
     def _usage(self):
