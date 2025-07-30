@@ -10,6 +10,7 @@ RestartSec=1
 User=root
 WorkingDirectory=__WORKING_DIRECTORY__
 ExecStart=python -m rest_sprinkler.serve
+Environment="HA_URL=__HA_URL__"
 Environment="HA_API_TOKEN=__HA_API_TOKEN__"
 
 [Install]

@@ -10,7 +10,7 @@ from .ha import Client as HaClient
 USER_AGENT = "rest_sprinkler"
 
 client = HaClient(
-    base_url="https://home-assistant.snow.jflei.com",
+    base_url=os.environ["HA_URL"],
     api_token=os.environ["HA_API_TOKEN"],
     user_agent=USER_AGENT,
 )

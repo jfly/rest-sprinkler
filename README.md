@@ -20,13 +20,16 @@ is better at this?
 
 Create a "Long-lived access token" in your Home Assistant profile:
 
-    HA_API_TOKEN=[that access token you just created] python -m rest_sprinkler.serve
+    HA_URL=[url of your Home Assistant server] HA_API_TOKEN=[that access token you just created] python -m rest_sprinkler.serve
 
 ## Install systemd service
 
 Urg:
 
-    systemd/install.sh [HA_API_TOKEN]
+    systemd/install.sh [HA_URL] [HA_API_TOKEN]
 
-Where `[HA_API_TOKEN]` is a "Long-lived access token" created in your Home
-Assistant profile.
+Where:
+- `[HA_URL]` is the url of your Home Assistant server, such as:
+  'https://home-assistant.example.com'.
+- `[HA_API_TOKEN]` is a "Long-lived access token" created in your Home
+  Assistant profile.
